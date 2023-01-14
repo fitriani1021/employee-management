@@ -1,0 +1,79 @@
+<div class="mt-5">
+  <mat-card class="container w-50">
+    <div class="p-3">
+      <mat-card-title class="d-flex justify-content-center mb-2">{{titleCard}}</mat-card-title>
+      <hr />
+      <mat-card-content>
+        <div class="mb-2">
+          <h2>Username</h2>
+          <p>{{data.username}}</p>
+
+          <mat-divider></mat-divider>
+        </div>
+
+        <div class="row mb-2">
+          <div class="col">
+            <h2>First Name</h2>
+            <p>{{data.firstName}}</p>
+
+            <mat-divider></mat-divider>
+          </div>
+          <div class="col">
+            <h2>Last Name</h2>
+            <p>{{data.lastName}}</p>
+
+            <mat-divider></mat-divider>
+          </div>
+        </div>
+
+        <div class="mb-2">
+          <h2>Email</h2>
+          <p>{{data.email}}</p>
+
+          <mat-divider></mat-divider>
+        </div>
+
+        <div class="row mb-2">
+          <div class="col">
+            <h2>Birth Date</h2>
+            <p>{{data.birthDate | date}}</p>
+
+            <mat-divider></mat-divider>
+          </div>
+          <div class="col">
+            <h2>Basic Salary</h2>
+            <p>{{data.basicSalary | currency:'IDR': 'symbol-narrow'}}</p>
+
+            <mat-divider></mat-divider>
+          </div>
+        </div>
+
+        <div class="row mb-2">
+          <div class="col">
+            <h2>Status</h2>
+            <p>{{data.status}}</p>
+
+            <mat-divider></mat-divider>
+          </div>
+          <div class="col">
+            <h2>Group</h2>
+            <p>{{data.group}}</p>
+
+            <mat-divider></mat-divider>
+          </div>
+        </div>
+
+        <div class="mb-2">
+          <h2>Description</h2>
+          <p>{{data.description}}</p>
+
+          <mat-divider></mat-divider>
+        </div>
+
+      </mat-card-content>
+      <mat-card-actions class="d-flex justify-content-end">
+        <button mat-stroked-button color="warn" routerLink=".."> Back</button>
+      </mat-card-actions>
+    </div>
+  </mat-card>
+</div>

@@ -1,0 +1,73 @@
+<h1 mat-dialog-title>Add Employee Form</h1>
+<hr />
+<div mat-dialog-content>
+  <form [formGroup]="employeeForm">
+    <mat-form-field appearance="outline" class="w-100 mt-1">
+      <mat-label>Username</mat-label>
+      <input formControlName="username" matInput placeholder="Fitriani (example)">
+    </mat-form-field>
+    <div class="row">
+      <mat-form-field appearance="outline" class="col">
+        <mat-label>First Name</mat-label>
+        <input formControlName="firstName" matInput placeholder="Fitri (example)">
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="col">
+        <mat-label>Last Name</mat-label>
+        <input formControlName="lastName" matInput placeholder="Fitriani (example)">
+      </mat-form-field>
+    </div>
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>Enter your email</mat-label>
+      <input type="email" formControlName="email" matInput placeholder="fitri@gmail.com">
+      <mat-error>{{onGetErrorMessage()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>Birth Date</mat-label>
+      <input formControlName="birthDate" matInput [min]="" [max]="maxDate" [matDatepicker]="picker">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="w-100 mt-3">
+      <mat-label>Basic Salary</mat-label>
+      <input formControlName="basicSalary" matInput type="number" placeholder="10000000">
+    </mat-form-field>
+    <label for="status" class="mt-1">Status</label>
+    <mat-radio-group formControlName="status" id="status" class="example-radio-group ">
+      <mat-radio-button *ngFor="let status of statusList" [value]="status" class="example-radio-button">
+        {{status}}
+      </mat-radio-button>
+    </mat-radio-group>
+    <mat-form-field appearance="outline" class="w-100 mt-2">
+      <mat-label>Group</mat-label>
+      <mat-select formControlName="group" placeholder="group">
+        <mat-option value="Developer">Developer</mat-option>
+        <mat-option value="Digital Marketing">Digital Marketing</mat-option>
+        <mat-option value="Human Resource">Human Resource</mat-option>
+        <mat-option value="Security">Security</mat-option>
+        <mat-option value="Asset Management">Asset Management</mat-option>
+        <mat-option value="Legal">Legal</mat-option>
+        <mat-option value="Operations">Operations</mat-option>
+        <mat-option value="Risk Management">Risk Management</mat-option>
+        <mat-option value="Business Development">Business Development</mat-option>
+        <mat-option value="General Management">General Management</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="w-100 mt-1">
+      <mat-label>Description</mat-label>
+      <textarea formControlName="description" matInput placeholder="This is description (example)"></textarea>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions [align]="'end'">
+  <button mat-raised-button color="warn" class="m-2" mat-dialog-close>Close</button>
+  <div *ngIf="isLoading">
+    <button mat-raised-button color="primary" (click)="onAddEmployee()" disabled="{{isLoading}}">
+      <mat-spinner color="primary" diameter="20">
+      </mat-spinner>
+    </button>
+  </div>
+  <div *ngIf="!isLoading">
+    <button mat-raised-button color="primary" (click)="onAddEmployee()" disabled="{{isLoading}}">{{actionBtn}}</button>
+  </div>
+</div>

@@ -1,6 +1,10 @@
 # EmployeeManagement
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
+This is an application to manage employee data. It has basic CRUD function. <br />
+Using https://mockapi.io/ for dummy datas. <br /><br />
+Login information: <br />
+email: admin@admin.com <br />
+password: admin
 
 ## Development server
 
